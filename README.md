@@ -9,7 +9,9 @@ Este script utiliza LaTeX para la generación de los documentos, por lo que es n
 - READMY.md : Este documento
 - config.yaml : Archivo de configuración
 - DefinicionProblemas/ : Carpeta de definición de problemas a seleccionar
-- assets : Archivos complementarios
+--problems-1stprinciples.tex : ejemplo de definición de problemas
+- assets/ : Archivos complementarios
+-- logo-utn.png : ejemplo de logo
 
 ## Archivo de configuración
 
