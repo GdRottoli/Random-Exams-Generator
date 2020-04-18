@@ -1,16 +1,16 @@
 import random
 import yaml
 import subprocess
+import os
+import errno
 
 # Futuros cambios:
 # - pasar aparte esta plantilla
 # - Hacerla menos dependiente de la posición
 # - considerar la escala del logo
 # - agregar gui (ver de usar easygui
-# - generar carpeta output si no existe
 # - manejo de excepciones
 # - tamaño de letra y demás yerbas
-# - eliminar archivos auxiliares de la carpeta output
 
 FirstPartLatex = '''  \\documentclass[12pt]{exam}
  		\\usepackage{times}
@@ -49,26 +49,37 @@ with open('config.yaml') as config_file:
         # LaTeX file construction ---------------------------------------
 
         TexFileName = '%s/examen-%d.tex' % (config["output_folder"], i)
-        TexFile = open(TexFileName, 'w')
+        if not os.path.exists(os.path.dirname(TexFileName)):
+            try:
+                os.makedirs(os.path.dirname(TexFileName))
+            except OSError as exc:  # Guard against race condition
+                if exc.errno != errno.EEXIST:
+                    raise
 
-        randomseed = random.randint(0, 9999) # Random seed for question selection
-        TexFile.write(FirstPartLatex % (config["logo"],
-                                        config["university"],
-                                        config["faculty"],
-                                        config["department"],
-                                        config["subject"],
-                                        config["topic"],
-                                        config["date"],
-                                        randomseed))
+        with open(TexFileName, 'w') as TexFile:
 
-        for ind, file in enumerate(config["question_bases"]):
-            number = config["questions_per_file"][ind]
-            TexFile.write(MidPartLatex % (number, file))
+            randomseed = random.randint(0, 9999) # Random seed for question selection
+            TexFile.write(FirstPartLatex % (config["logo"],
+                                            config["university"],
+                                            config["faculty"],
+                                            config["department"],
+                                            config["subject"],
+                                            config["topic"],
+                                            config["date"],
+                                            randomseed))
 
-        TexFile.write(EndPartLatex)
-        TexFile.close()
+            for ind, file in enumerate(config["question_bases"]):
+                number = config["questions_per_file"][ind]
+                TexFile.write(MidPartLatex % (number, file))
+
+            TexFile.write(EndPartLatex)
 
         # PDF creation ---------------------------------------
 
         proc = subprocess.Popen(['pdflatex', '-output-directory', config["output_folder"], TexFileName], shell=False)
         proc.communicate()
+
+        # remove auxiliary files
+        filelist = [f for f in os.listdir(config["output_folder"]) if not f.endswith(".pdf")]
+        for f in filelist:
+            os.remove(os.path.join(config["output_folder"], f))
