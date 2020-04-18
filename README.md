@@ -1,17 +1,35 @@
 # RandomTestGenerator
 
 Script para la generación de exámenes aleatorios. 
-Este script utiliza LaTeX para la generación de los documentos, por lo que es necesario contar con pdflatex instalado.
+
+## Paquetes requeridos
+- python3
+- pyyaml
+- subprocess
+- random
+
+Es necesario contar con pdflatex instalado. Los paquetes de latex necesarios se encuentran disponibles en CTAN, por lo que la instalación de pdflatex debería ser suficiente.
 
 ## Estructura de archivos
-
+```
 - generator.py: Script ejecutable 
 - READMY.md : Este documento
 - config.yaml : Archivo de configuración
 - DefinicionProblemas/ : Carpeta de definición de problemas a seleccionar
-     - problems-1stprinciples.tex : ejemplo de definición de problemas
+  \_ problems-1stprinciples.tex : ejemplo de definición de problemas
 - assets/ : Archivos complementarios
-     - logo-utn.png : ejemplo de logo
+  \_logo-utn.png : ejemplo de logo
+```
+
+## Modo de uso
+
+1. Establecer los archivos de preguntas utilizando LaTeX según la plantilla provista. 
+2. Configurar el archivo config.yaml tal como se detalla debajo.
+3. Ejecutar script utilizando python
+```
+python generator.py
+```
+4. Los exámenes serán generados en la carpeta output especificada. Los archivos .out, .tex y .log son archivos auxiliares que pueden ser eliminados.
 
 ## Archivo de configuración
 
@@ -46,6 +64,12 @@ El formato es el especificado por el paquete probsoln de latex.
 ```
 
 Para más información sobre este paquete consultar [probsoln documentation](http://ctan.dcc.uchile.cl/macros/latex/contrib/probsoln/probsoln.pdf).
+
+## Contacto
+
+- Giovanni D. Rottoli: gd.rottoli@gmail.com
+- Carlos Casanova: carlos.casanova16@gmail.com
+- Gonzalo Gorosito: gonzalogmg09@gmail.com
 
 
 
