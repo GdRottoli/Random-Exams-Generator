@@ -25,7 +25,7 @@ El archivo de configuración debe ser provisto con la información siguiente:
 - date: fecha, información para el encabezado
 - logo: ruta del logo, generalmente dentro de assets
 - question_bases: lista de archivos de base de preguntas.
-- questions\_per\_file: lista de números indicando la cantidad de preguntas a seleccionar de cada archivo de question_bases
+- questions_per_file: lista de números indicando la cantidad de preguntas a seleccionar de cada archivo de question_bases
 ```
 ## Base de preguntas
 
@@ -39,7 +39,7 @@ El formato es el especificado por el paquete probsoln de latex.
  \end{onlyproblem}
  \begin{onlysolution}
     % solución
- \end{onlysolution}%
+ \end{onlysolution}
 \end{defproblem}
 ```
 
