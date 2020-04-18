@@ -1,0 +1,18 @@
+output_folder: 'output'
+student_number: 10
+university: 'Universidad Tecnológica Nacional'
+faculty: 'Facultad Regional Concepción del Uruguay'
+department: 'Ingeniería en Sistemas de Información' 
+subject: 'Matemática Discreta'
+topic: 'Primer Parcial Teórico'
+date: '23 de Abril de 2020'
+logo: 'assets/logo-utn.png'
+question_bases:
+- 'DefinicionProblemas/problems-1stprinciples.tex'
+- 'DefinicionProblemas/problems-1stprinciples.tex'
+- 'DefinicionProblemas/problems-1stprinciples.tex'
+questions_per_file:
+- 2
+- 1
+- 3
+
