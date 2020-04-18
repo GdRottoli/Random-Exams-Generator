@@ -47,8 +47,9 @@ with open('config.yaml') as config_file:
     for i in range(0, config["student_number"]):
 
         # LaTeX file construction ---------------------------------------
-
-        TexFileName = '%s/examen-%d.tex' % (config["output_folder"], i)
+        # Se genera un nuevo directorio output, para que no se meta la pata y usen mis documentos y terminemos borrando
+        # otros archivos que no son. Se podria solucionar de otra forma más prolija pero por ahora así.
+        TexFileName = 'output/examen-%d.tex' % i
         if not os.path.exists(os.path.dirname(TexFileName)):
             try:
                 os.makedirs(os.path.dirname(TexFileName))
@@ -76,10 +77,10 @@ with open('config.yaml') as config_file:
 
         # PDF creation ---------------------------------------
 
-        proc = subprocess.Popen(['pdflatex', '-output-directory', config["output_folder"], TexFileName], shell=False)
+        proc = subprocess.Popen(['pdflatex', '-output-directory', 'output', TexFileName], shell=False)
         proc.communicate()
 
-        # remove auxiliary files
-        filelist = [f for f in os.listdir(config["output_folder"]) if not f.endswith(".pdf")]
-        for f in filelist:
-            os.remove(os.path.join(config["output_folder"], f))
+    # remove auxiliary files
+    filelist = [f for f in os.listdir("output") if (f.endswith(".log") | f.endswith(".tex") | f.endswith(".aux"))]
+    for f in filelist:
+        os.remove(os.path.join('output/', f))

@@ -35,7 +35,6 @@ python generator.py
 
 El archivo de configuración debe ser provisto con la información siguiente:
 ```
-- output_folder: ruta de salida, se debe crear la carpeta output si no existe.
 - student_number: entero, cantidad de exámenes a generar
 - university: nombre de la universidad, información para el encabezado
 - faculty: nombre de la facultad, información para el encabezado
