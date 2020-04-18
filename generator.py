@@ -2,6 +2,15 @@ import random
 import yaml
 import subprocess
 
+# Futuros cambios:
+# - pasar aparte esta plantilla
+# - Hacerla menos dependiente de la posición
+# - considerar la escala del logo
+# - agregar gui (ver de usar easygui
+# - generar carpeta output si no existe
+# - manejo de excepciones
+# - tamaño de letra y demás yerbas
+# - eliminar archivos auxiliares de la carpeta output
 
 FirstPartLatex = '''  \\documentclass[12pt]{exam}
  		\\usepackage{times}
@@ -13,7 +22,7 @@ FirstPartLatex = '''  \\documentclass[12pt]{exam}
         \\pagestyle{head}
         \\headrule
         \\extraheadheight{.52in}
-        \\lhead{\\includegraphics[scale=0.65]{%s}}
+        \\lhead{\\includegraphics[scale=0.65]{%s}} 
         \\chead{\\textbf{\\bfseries %s\\\\%s\\\\%s\\\\ \\bigskip %s - %s \\\\ %s}}
         \\rhead{}
         \\PSNrandseed{%d}
@@ -28,7 +37,7 @@ EndPartLatex = '''
          
         \\begin{enumerate}
         \\foreachproblem{\\item\\thisproblem}
-        \\end{enumerate}mat
+        \\end{enumerate}
         \\end{document}
         '''
 
