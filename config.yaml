@@ -4,10 +4,8 @@ faculty: "Facultad Regional Concepci\xF3n del Uruguay"
 logo: assets/logo-utn.png
 question_bases:
 - DefinicionProblemas/problems-1stprinciples
-- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/problems-1stprinciples.tex
 questions_per_file:
 - 2
-- 4
 student_number: 4
 subject: "Matem\xE1tica Discreta"
 topic: "Primer Parcial Te\xF3rico"
