@@ -1,17 +1,14 @@
-student_number: 10
-university: 'Universidad Tecnológica Nacional'
-faculty: 'Facultad Regional Concepción del Uruguay'
-department: 'Ingeniería en Sistemas de Información' 
-subject: 'Matemática Discreta'
-topic: 'Primer Parcial Teórico'
-date: '23 de Abril de 2020'
-logo: 'assets/logo-utn.png'
+date: 23 de Abril de 2020
+department: "Ingenier\xEDa en Sistemas de Informaci\xF3n"
+faculty: "Facultad Regional Concepci\xF3n del Uruguay"
+logo: assets/logo-utn.png
 question_bases:
-- 'DefinicionProblemas/problems-1stprinciples.tex'
-- 'DefinicionProblemas/problems-1stprinciples.tex'
-- 'DefinicionProblemas/problems-1stprinciples.tex'
+- DefinicionProblemas/problems-1stprinciples
+- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/problems-1stprinciples.tex
 questions_per_file:
 - 2
-- 1
-- 3
-
+- 4
+student_number: 4
+subject: "Matem\xE1tica Discreta"
+topic: "Primer Parcial Te\xF3rico"
+university: "Universidad Tecnol\xF3gica Nacional"

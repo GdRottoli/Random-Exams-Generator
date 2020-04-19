@@ -2,7 +2,6 @@ import random
 import yaml
 import subprocess
 import os
-import errno
 
 # Futuros cambios:
 # - pasar aparte esta plantilla
@@ -41,46 +40,47 @@ EndPartLatex = '''
         \\end{document}
         '''
 
-with open('config.yaml') as config_file:
-    config = yaml.load(config_file, Loader=yaml.FullLoader)
-    print(config)
-    for i in range(0, config["student_number"]):
+def file_generation():
+    with open('config.yaml') as config_file:
+        config = yaml.load(config_file, Loader=yaml.FullLoader)
+        print(config)
+        for i in range(0, config["student_number"]):
 
-        # LaTeX file construction ---------------------------------------
-        # Se genera un nuevo directorio output, para que no se meta la pata y usen mis documentos y terminemos borrando
-        # otros archivos que no son. Se podria solucionar de otra forma más prolija pero por ahora así.
-        TexFileName = 'output/examen-%d.tex' % i
-        if not os.path.exists(os.path.dirname(TexFileName)):
-            try:
-                os.makedirs(os.path.dirname(TexFileName))
-            except OSError as exc:  # Guard against race condition
-                if exc.errno != errno.EEXIST:
-                    raise
+            # LaTeX file construction ---------------------------------------
+            # Se genera un nuevo directorio output, para que no se meta la pata y usen mis documentos y terminemos borrando
+            # otros archivos que no son. Se podria solucionar de otra forma más prolija pero por ahora así.
+            TexFileName = 'output/examen-%d.tex' % i
+            if not os.path.exists(os.path.dirname(TexFileName)):
+                try:
+                    os.makedirs(os.path.dirname(TexFileName))
+                except OSError as exc:  # Guard against race condition
+                    if exc.errno != errno.EEXIST:
+                        raise
 
-        with open(TexFileName, 'w') as TexFile:
+            with open(TexFileName, 'w') as TexFile:
 
-            randomseed = random.randint(0, 9999) # Random seed for question selection
-            TexFile.write(FirstPartLatex % (config["logo"],
-                                            config["university"],
-                                            config["faculty"],
-                                            config["department"],
-                                            config["subject"],
-                                            config["topic"],
-                                            config["date"],
-                                            randomseed))
+                randomseed = random.randint(0, 9999) # Random seed for question selection
+                TexFile.write(FirstPartLatex % (config["logo"],
+                                                config["university"],
+                                                config["faculty"],
+                                                config["department"],
+                                                config["subject"],
+                                                config["topic"],
+                                                config["date"],
+                                                randomseed))
 
-            for ind, file in enumerate(config["question_bases"]):
-                number = config["questions_per_file"][ind]
-                TexFile.write(MidPartLatex % (number, file))
+                for ind, file in enumerate(config["question_bases"]):
+                    number = config["questions_per_file"][ind]
+                    TexFile.write(MidPartLatex % (number, file))
 
-            TexFile.write(EndPartLatex)
+                TexFile.write(EndPartLatex)
 
-        # PDF creation ---------------------------------------
+            # PDF creation ---------------------------------------
 
-        proc = subprocess.Popen(['pdflatex', '-output-directory', 'output', TexFileName], shell=False)
-        proc.communicate()
+            proc = subprocess.Popen(['pdflatex', '-output-directory', 'output', TexFileName], shell=False)
+            proc.communicate()
 
-    # remove auxiliary files
-    filelist = [f for f in os.listdir("output") if (f.endswith(".log") | f.endswith(".tex") | f.endswith(".aux"))]
-    for f in filelist:
-        os.remove(os.path.join('output/', f))
+        # remove auxiliary files
+        filelist = [f for f in os.listdir("output") if (f.endswith(".log") | f.endswith(".tex") | f.endswith(".aux"))]
+        for f in filelist:
+            os.remove(os.path.join('output/', f))
