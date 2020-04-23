@@ -1,0 +1,143 @@
+
+\begin{defproblem}{conjuntos1}%
+ \begin{onlyproblem}%
+	Confeccione un diagrama de Venn para la situación caracterizada por las siguientes condiciones. Salvo que se especifique lo contrario, suponga que todos los conjuntos tienen intersección no vacía y que ningún conjunto está incluido dentro de otro.
+	
+	\begin{enumerate}
+		\item $ A \neq \mathcal{U} $
+		\item $ B \subset C $
+		\item $ A = C \cup D $
+		\item $ C \cap D = \emptyset $
+	\end{enumerate}
+
+	Utilice las condiciones anteriores y las propiedades de los conjuntos para demostrar que en estas condiciones $ A^c \cup D \cup (B^c \cap (C^c \cup B))^c = \mathcal{U} $
+ \end{onlyproblem}%
+ \begin{onlysolution}%
+ 	Diagrama de Venn:
+ 	
+ 	\begin{figure}
+ 		\includegraphics[width=0.7\linewidth]{conjuntos1}
+ 		\caption[Solución a conjuntos1]{Solución a conjuntos1}
+ 		\label{fig:conjuntos1-solucion}
+ 	\end{figure}
+ 	
+ 	\begin{align*}
+ 	A^c \cup D \cup (B^c \cap (C^c \cup B))^c & = A^c \cup D \cup [(B^c \cap C^c) \cup (B^c \cap B)]^c &  \text{distributiva} \\	
+ 	& = A^c \cup D \cup [(B^c \cap C^c) \cup \emptyset]^c & \text{complementación} \\
+ 	& = A^c \cup D \cup [(B^c \cap C^c)]^c & \text{elemento neutro } \cup \\
+ 	& = A^c \cup D \cup [(B \cup C)] & \text{ley de De Morgan} \\
+ 	& = A^c \cup D \cup B \cup C & \text{asociativa } \cup \\
+ 	& = A^c \cup D \cup C \cup B & \text{conmutativa } \cup \\
+ 	& = A^c \cup (D \cup C) \cup B & \text{asociativa } \cup \\
+ 	& = A^c \cup A \cup B & \text{condición }3 \\
+ 	& = \mathcal{U} \cup B & \text{complementación} \\
+ 	& = \mathcal{U} & \text{elemento absorbente } \cup
+ 	\end{align*}
+ \end{onlysolution}%
+\end{defproblem}
+
+\begin{defproblem}{conjuntos2}%
+	\begin{onlyproblem}%
+		Confeccione un diagrama de Venn para la situación caracterizada por las siguientes condiciones. Salvo que se especifique lo contrario, suponga que todos los conjuntos tienen intersección no vacía y que ningún conjunto está incluido dentro de otro.
+		
+		\begin{enumerate}
+			\item $ A \neq \mathcal{U} $
+			\item $ D \subset B $
+			\item $ A = B \cup C $
+			\item $ C \cap B = \emptyset $
+		\end{enumerate}
+		
+		Utilice las condiciones anteriores y las propiedades de los conjuntos para demostrar que en estas condiciones $ A^c \cup C \cup (D^c \cap (B^c \cup D))^c = \mathcal{U} $
+	\end{onlyproblem}%
+	\begin{onlysolution}%
+		Diagrama de Venn:
+		
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{conjuntos1}
+			\caption[Solución a conjuntos2]{Solución a conjuntos2}
+			\label{fig:conjuntos2-solucion}
+		\end{figure}
+	
+		\begin{align*}
+		A^c \cup C \cup (D^c \cap (B^c \cup D))^c & = A^c \cup C \cup [(D^c \cap B^c) \cup (D^c \cap D)]^c &  \text{distributiva} \\	
+		& = A^c \cup C \cup [(D^c \cap B^c) \cup \emptyset]^c & \text{complementación} \\
+		& = A^c \cup C \cup [(D^c \cap B^c)]^c & \text{elemento neutro } \cup \\
+		& = A^c \cup C \cup [(D \cup B)] & \text{ley de De Morgan} \\
+		& = A^c \cup C \cup D \cup B & \text{asociativa } \cup \\
+		& = A^c \cup C \cup B \cup D & \text{conmutativa } \cup \\
+		& = A^c \cup (C \cup B) \cup D & \text{asociativa } \cup \\
+		& = A^c \cup A \cup D & \text{condición }3 \\
+		& = \mathcal{U} \cup D & \text{complementación} \\
+		& = \mathcal{U} & \text{elemento absorbente } \cup
+		\end{align*}
+	\end{onlysolution}%
+\end{defproblem}
+
+\begin{defproblem}{conjuntos3}%
+	\begin{onlyproblem}%
+		Confeccione un diagrama de Venn para la situación caracterizada por las siguientes condiciones. Salvo que se especifique lo contrario, suponga que todos los conjuntos tienen intersección no vacía y que ningún conjunto está incluido dentro de otro.
+		
+		\begin{enumerate}
+			\item $ A \neq \mathcal{U} $
+			\item $ B \subset A $
+			\item $ A = C \cup D $
+			\item $ C \cap D = \emptyset $
+		\end{enumerate}
+		
+		Utilice las condiciones anteriores y las propiedades de los conjuntos para demostrar que en estas condiciones $ C^c \triangle D^c = A $
+	\end{onlyproblem}%
+	\begin{onlysolution}%
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{conjuntos1}
+			\caption[Solución a conjuntos3]{Solución a conjuntos3}
+			\label{fig:conjuntos3-solucion}
+		\end{figure}
+	
+		\begin{align*}
+		C^c \triangle D^c & = (C^c \cup D^c) - (C^c \cap D^c) &  \text{equivalencia } \triangle \\	
+		& = (C^c \cup D^c) \cap (C^c \cap D^c)^c & \text{equivalencia } - \\
+		& = (C^c \cup D^c) \cap (C \cup D) & \text{Ley de De Morgan} \\
+		& = (C^c \cup D^c) \cap A & \text{condición }3 \\
+		& = (C \cap D)^c \cap A & \text{ley de De Morgan} \\
+		& = (\emptyset)^c \cap A & \text{condición }4 \\
+		& = \mathcal{U} \cap A & \text{complemento de }\emptyset \\
+		& = A & \text{elemento neutro }\cap
+		\end{align*}
+	\end{onlysolution}%
+\end{defproblem}
+
+\begin{defproblem}{conjuntos4}%
+	\begin{onlyproblem}%
+		Confeccione un diagrama de Venn para la situación caracterizada por las siguientes condiciones. Salvo que se especifique lo contrario, suponga que todos los conjuntos tienen intersección no vacía y que ningún conjunto está incluido dentro de otro.
+		
+		\begin{enumerate}
+			\item $ A \neq \mathcal{U} $
+			\item $ D \subset A $
+			\item $ A = C \cup B $
+			\item $ C \cap B = \emptyset $
+		\end{enumerate}
+		
+		Utilice las condiciones anteriores y las propiedades de los conjuntos para demostrar que en estas condiciones $ ((A^c \cup D) \cup C^c)^c \cap (B \cup D) = \emptyset $
+	\end{onlyproblem}%
+	\begin{onlysolution}%
+		
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{conjuntos1}
+			\caption[Solución a conjuntos4]{Solución a conjuntos4}
+			\label{fig:conjuntos4-solucion}
+		\end{figure}
+	
+		\begin{align*}
+		((A^c \cup D) \cup C^c)^c \cap (B \cup D) & = ((A^c \cup D)^c \cap C) \cap (B \cup D) & \text{Ley de De Morgan y doble complemento} \\	
+		& = ((A \cap D^c) \cap C) \cap (B \cup D) & \text{Ley de De Morgan y doble complemento} \\
+		& = A \cap D^c \cap C \cap (B \cup D) & \text{asociativa } \cap \\
+		& = A \cap D^c \cap [(C \cap B) \cup (C \cap D)] & \text{distributiva } \\
+		& = A \cap D^c \cap [(\emptyset) \cup (C \cap D)] & \text{condición }4 \\
+		& = A \cap D^c \cap (C \cap D) & \text{elemento neutro }\cup \\
+		& = A \cap D^c \cap C \cap D & \text{asociativa }\cup \\
+		& = A \cap (D^c \cap D) \cap C & \text{conmutativa y asociativa }\cup \\
+		& = A \cap \emptyset \cap C & \text{complementación} \\
+		& = \emptyset & \text{elemento absorbente }\cap
+		\end{align*}
+	\end{onlysolution}%
+\end{defproblem}

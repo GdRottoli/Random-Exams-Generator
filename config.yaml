@@ -3,10 +3,16 @@ department: "Ingenier\xEDa en Sistemas de Informaci\xF3n"
 faculty: "Facultad Regional Concepci\xF3n del Uruguay"
 logo: assets/logo-utn.png
 question_bases:
-- DefinicionProblemas/problems-1stprinciples
+- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/Conjuntos.tex
+- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/LP1.tex
+- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/LPC.tex
+- /home/makina/PycharmProjects/RandomTestGenerator/DefinicionProblemas/Relaciones.tex
 questions_per_file:
-- 2
-student_number: 4
+- 4
+- 4
+- 6
+- 4
+student_number: 1
 subject: "Matem\xE1tica Discreta"
-topic: "Primer Parcial Te\xF3rico"
+topic: "Primer Parcial Pr\xE1ctico  COMPLETO"
 university: "Universidad Tecnol\xF3gica Nacional"

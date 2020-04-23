@@ -29,7 +29,7 @@ Es necesario contar con pdflatex instalado. Los paquetes de latex necesarios se 
 ```
 python generator.py
 ```
-4. Los exámenes serán generados en la carpeta output especificada. Los archivos .out, .tex y .log son archivos auxiliares que pueden ser eliminados.
+4.
 
 ## Archivo de configuración
 

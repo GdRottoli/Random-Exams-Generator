@@ -17,7 +17,7 @@ FirstPartLatex = '''  \\documentclass[12pt]{exam}
         \\usepackage{amsmath}
         \\usepackage{graphicx}
         \\usepackage{probsoln}
-       
+        \\usepackage[spanish]{babel}
         \\pagestyle{head}
         \\headrule
         \\extraheadheight{.52in}
@@ -77,6 +77,8 @@ def file_generation():
 
             # PDF creation ---------------------------------------
 
+            proc = subprocess.Popen(['pdflatex', '-output-directory', 'output', TexFileName], shell=False)
+            proc.communicate()
             proc = subprocess.Popen(['pdflatex', '-output-directory', 'output', TexFileName], shell=False)
             proc.communicate()
 
