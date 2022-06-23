@@ -1,4 +1,4 @@
-# RandomTestGenerator
+# Random Exams Generator
 
 Script para la generación de exámenes aleatorios. 
 
